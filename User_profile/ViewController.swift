@@ -58,7 +58,17 @@ extension UIView
             }
         }
         
-     
+        if let width  = width
+        {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+        
+        if let height  = height
+        {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
     }
 }
 
