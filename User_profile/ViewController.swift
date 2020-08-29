@@ -29,10 +29,10 @@ class ViewController: UIViewController {
           image.translatesAutoresizingMaskIntoConstraints = false
           image.heightAnchor.constraint(equalToConstant: 120).isActive = true
           image.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        image.contentMode = .scaleAspectFill
-        image.layer.borderWidth = 2
-        image.layer.borderColor = UIColor.white.cgColor
-        image.layer.cornerRadius = 120 / 2
+          image.contentMode = .scaleAspectFill
+          image.layer.borderWidth = 2
+          image.layer.borderColor = UIColor.white.cgColor
+          image.layer.cornerRadius = 120 / 2
           
           image.clipsToBounds = true
           return image
@@ -66,7 +66,29 @@ class ViewController: UIViewController {
     }()
     
     
+    let emaillabel: UILabel =
+    {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        label.text = "vernom@yahoo.com"
+        return label
+    }()
     
+    let username: UILabel =
+       {
+           let label = UILabel()
+           label.translatesAutoresizingMaskIntoConstraints = false
+           label.textColor = .white
+           label.textAlignment = .center
+           label.font = UIFont.systemFont(ofSize: 16)
+           label.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        label.text = "Vernom"
+           return label
+       }()
     
     //MARK: LifeCycle
     
@@ -83,6 +105,8 @@ class ViewController: UIViewController {
         containerView.addSubview(profileimage)
         containerView.addSubview(messagebutton)
         containerView.addSubview(addprofile)
+        containerView.addSubview(username)
+        containerView.addSubview(emaillabel)
         
         containerView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor , height: 320)
         
@@ -97,8 +121,17 @@ class ViewController: UIViewController {
         addprofile.centerYAnchor.constraint(equalTo: messagebutton.centerYAnchor).isActive = true
         addprofile.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -5).isActive = true
         
+        username.topAnchor.constraint(equalTo: profileimage.bottomAnchor, constant: 15).isActive = true
+        username.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        
+        emaillabel.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 5).isActive = true
+        emaillabel.centerXAnchor.constraint(equalTo: username.centerXAnchor).isActive = true
+        
 
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     
 }
